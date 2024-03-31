@@ -1,0 +1,49 @@
+{% include "header.html" %}
+<div class="container">
+    <h1 class="mt-5 mb-4">Your Shopping Cart</h1>
+    {% if cart_items %}
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in cart_items %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>${{ item.price //100 }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="2"><strong>Total:</strong></td>
+                    <td><strong>${{ total_price // 100 }}</strong></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary" id="submitBtn">Purchase!</button>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-info" role="alert">
+        Your shopping cart is empty.
+    </div>
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-primary" href="{{ url_for('main_page') }}">Start Shopping</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% include "footer.html" %}
