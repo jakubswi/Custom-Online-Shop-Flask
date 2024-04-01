@@ -159,5 +159,5 @@ def fulfill_order(line_items):
     pass
 
 
-if __name__ == "__main__":
+if __name__ == "__app__":
     app.run(debug=True)
