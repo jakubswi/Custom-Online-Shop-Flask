@@ -3,4 +3,14 @@ body {
 }
 .btn-primary {
     background-color: #B1B2FF;
+    color: black;
+}
+.card-body {
+    background-color: #AAC4FF;
+}
+.btn:hover {
+    background: #B1B2FF;
+}
+.btn-primary:hover {
+    background: #AAC4FF;
 }

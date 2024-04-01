@@ -11,8 +11,7 @@ stripe_keys = {
 app = Flask(__name__)
 Bootstrap5(app)
 
-
-# stripe.api_key = stripe_keys["secret_key"]
+stripe.api_key = stripe_keys["secret_key"]
 
 
 @app.route('/')
@@ -122,7 +121,8 @@ def products():
 @app.route('/view_product/<id>')
 def view_product(id):
     product = stripe.Product.retrieve(id)
-    return render_template("product.html", product=product)
+    price = stripe.Price.retrieve(product['default_price'])['unit_amount']
+    return render_template("product.html", product=product, price=price)
 
 
 @app.route('/add_to_cart/<id>')

@@ -1,7 +1,8 @@
 {% include "header.html" %}
 <!-- TODO: Place your shop description here. -->
 <div class="px-4 py-5 my-5 text-center">
-    <img alt="" class="d-block mx-auto mb-4" height="57" src="/docs/5.3/assets/brand/bootstrap-logo.svg" width="72">
+    <img alt="Shop logo" class="d-block mx-auto mb-4" height="57"
+         src="{{ url_for('static', filename='assets/img/basket.svg') }}" width="72">
     <h1 class="display-5 fw-bold text-body-emphasis">Lorem ipsum</h1>
     <div class="col-lg-6 mx-auto">
         <p class="lead mb-4">dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -17,8 +18,8 @@
 <div class="container col-xxl-8 px-4 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
         <div class="col-10 col-sm-8 col-lg-6">
-            <img alt="Bootstrap Themes" class="d-block mx-lg-auto img-fluid" height="500" loading="lazy"
-                 src="bootstrap-themes.png" width="700">
+            <img alt="Shop image" class="d-block mx-lg-auto img-fluid" height="500" loading="lazy"
+                 src="{{ url_for('static', filename='assets/img/shop.jpeg') }}" width="700">
         </div>
         <div class="col-lg-6">
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Dictumst quisque</h1>

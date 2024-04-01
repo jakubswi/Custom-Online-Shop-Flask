@@ -5,28 +5,27 @@
         {% for index in range(len_products) %}
         {% if products[index].active == true %}
         <div class="col">
-            <a href="{{ url_for('view_product', id=products[index].id, price=prices[index].unit_amount) }}">
-                <div class="card shadow-sm">
-                    <img aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top" focusable="false"
-                         height="225" preserveAspectRatio="xMidYMid slice" role="img"
-                         src="{{products[index].images[0]}}">
-                    <div class="card-body">
-                        <p class="card-text">{{products[index].name}}></p>
-                        <p class="card-text">{{products[index].description}}</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a class="btn btn-sm btn-outline-secondary"
-                                   href="{{ url_for('view_product', id=products[index].id,price=prices[index].unit_amount) }}"
-                                   type="button">View</a>
-                                <a class="btn btn-sm btn-outline-secondary"
-                                   href="{{ url_for('add_to_cart', id=products[index].id) }}"
-                                   type="button">Add to cart</a>
-                            </div>
-                            <small class="text-body-secondary">{{prices[index].unit_amount}}</small>
+
+            <div class="card shadow-sm">
+                <img aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top" focusable="false"
+                     height="225" preserveAspectRatio="xMidYMid slice" role="img"
+                     src="{{products[index].images[0]}}">
+                <div class="card-body">
+                    <p class="card-text">{{products[index].name}}</p>
+                    <p class="card-text">{{products[index].description}}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a class="btn btn-sm btn-outline-secondary"
+                               href="{{ url_for('view_product', id=products[index].id) }}"
+                               type="button">View</a>
+                            <a class="btn btn-sm btn-outline-secondary"
+                               href="{{ url_for('add_to_cart', id=products[index].id) }}"
+                               type="button">Add to cart</a>
                         </div>
+                        <small class="text-body-secondary">{{prices[index].unit_amount // 100}} $</small>
                     </div>
                 </div>
-            </a>
+            </div>
         </div>
         {% endif %}
         {% endfor %}

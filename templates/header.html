@@ -13,24 +13,23 @@
 <body>
 <div class="container">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-        <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none" href="/">
-            <svg class="bi me-2" height="32" width="40">
-                <use xlink:href="#bootstrap"></use>
-            </svg>
+        <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto px-2 link-body-emphasis text-decoration-none"
+           href="{{ url_for('main_page') }}">
+            <img class="px-2" src="{{ url_for('static', filename='assets/img/basket.svg') }}">
             <span class="fs-4">Online shop</span>
         </a>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a class="nav-link px-2 link-secondary" href="{{ url_for('main_page') }}">Home</a></li>
-            <li><a class="nav-link px-2" href="{{ url_for('products') }}">Products</a></li>
-            <li><a class="nav-link px-2" href="{{ url_for('about') }}">About</a></li>
-            <li><a class="nav-link px-2" href="{{ url_for('shopping_cart') }}"><img
-                    src="static/assets/img/cart.png"></a></li>
+            <li><a class="nav-link px-2 link-secondary" href="{{ url_for('products') }}">Products</a></li>
+            <li><a class="nav-link px-2 link-secondary" href="{{ url_for('about') }}">About</a></li>
+            <li><a class="nav-link px-2 link-secondary" href="{{ url_for('shopping_cart') }}"><img
+                    height="24" src="{{ url_for('static', filename='assets/img/basket.svg') }}" width="24"></a></li>
         </ul>
 
         <div class="col-md-3 text-end">
-            <a class="btn btn-outline-primary me-2" href="{{ url_for('login') }}" type="button">Login</a>
-            <a class="btn btn-primary" href="{{ url_for('signup') }}" type="button">Sign-up</a>
+            <a class="btn btn-outline-secondary me-2" href="{{ url_for('login') }}" type="button">Login</a>
+            <a class="btn btn-primary btn-outline-secondary" href="{{ url_for('signup') }}" type="button">Sign-up</a>
         </div>
     </header>
 </div>
