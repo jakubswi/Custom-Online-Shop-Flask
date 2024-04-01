@@ -10,6 +10,7 @@
                     <th scope="col">Product</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Price</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -18,6 +19,7 @@
                     <td>{{ item.product.name }}</td>
                     <td>{{ item.quantity }}</td>
                     <td>${{ item.price //100 }}</td>
+                    <td scope="col"><a class="btn btn-danger" href="{{ url_for('delete_from_cart',item=item.id) }}">Delete</a></td>
                 </tr>
                 {% endfor %}
                 <tr>

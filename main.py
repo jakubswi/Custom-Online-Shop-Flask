@@ -10,7 +10,7 @@ stripe_keys = {
 }
 app = Flask(__name__)
 Bootstrap5(app)
-
+app.config['SECRET_KEY'] = '8BYkEfQYXNBYSDJYY'
 stripe.api_key = stripe_keys["secret_key"]
 
 
@@ -48,8 +48,8 @@ def create_checkout_session():
                     "quantity": quantity,
                 })
         checkout_session = stripe.checkout.Session.create(
-            success_url=url_for('success'),
-            cancel_url=url_for("cancel"),
+            success_url= "http://127.0.0.1:5000/success",#url_for("success"),
+            cancel_url="http://127.0.0.1:5000/cancel",#url_for("cancel"),
             payment_method_types=["card"],
             mode="payment",
             line_items=line_items
@@ -129,7 +129,7 @@ def view_product(id):
 def add_to_cart(id):
     if 'cart' not in session:
         session['cart'] = {}
-    if id not in session['cart']:
+    if id not in session['cart'].keys():
         session['cart'][id] = 1
     else:
         session['cart'][id] += 1
@@ -145,11 +145,16 @@ def shopping_cart():
             product = stripe.Product.retrieve(product_id)
             price = stripe.Price.retrieve(product['default_price'])['unit_amount'] * quantity
             total_price += price
-            cart_items.append({'product': product['name'], 'quantity': quantity, 'price': price})
+            cart_items.append({'product': product, 'quantity': quantity, 'price': price,'id': product_id})
     return render_template('shopping_cart.html', cart_items=cart_items, total_price=total_price)
 
+@app.route('/delete_from_cart/<item>')
+def delete_from_cart(item):
+    del session['cart'][item]
+    return redirect(url_for('shopping_cart'))
 
 def fulfill_order(line_items):
+    del session['cart']
     # TODO: Implement logic to fulfill order
     pass
 
