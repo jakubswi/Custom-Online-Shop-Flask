@@ -11,7 +11,7 @@ stripe_keys = {
 app = Flask(__name__)
 Bootstrap5(app)
 
-stripe.api_key = stripe_keys["secret_key"]
+# stripe.api_key = stripe_keys["secret_key"]
 
 
 @app.route('/')
@@ -37,7 +37,6 @@ def get_publishable_key():
 
 @app.route('/create-checkout-session', methods=['POST'])
 def create_checkout_session():
-    domain_url = "http://127.0.0.1:5000/"
     stripe.api_key = stripe_keys["secret_key"]
     try:
         line_items = []
@@ -49,8 +48,8 @@ def create_checkout_session():
                     "quantity": quantity,
                 })
         checkout_session = stripe.checkout.Session.create(
-            success_url=domain_url + "success",
-            cancel_url=domain_url + "cancelled",
+            success_url=url_for('success'),
+            cancel_url=url_for("cancel"),
             payment_method_types=["card"],
             mode="payment",
             line_items=line_items
@@ -107,10 +106,10 @@ def products():
     return render_template("products.html", products=products, prices=prices, len_products=len_products)
 
 
-@app.route('/view_product/<id>/<price>')
-def view_product(id,price):
+@app.route('/view_product/<id>')
+def view_product(id):
     product = stripe.Product.retrieve(id)
-    return render_template("product.html", product=product, price=price)
+    return render_template("product.html", product=product)
 
 
 @app.route('/add_to_cart/<id>')
