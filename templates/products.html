@@ -15,9 +15,11 @@
                         <p class="card-text">{{products[index].description}}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('view_product', id=products[index].id,price=prices[index].unit_amount) }}"
+                                <a class="btn btn-sm btn-outline-secondary"
+                                   href="{{ url_for('view_product', id=products[index].id,price=prices[index].unit_amount) }}"
                                    type="button">View</a>
-                                <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('add_to_cart', id=products[index].id) }}"
+                                <a class="btn btn-sm btn-outline-secondary"
+                                   href="{{ url_for('add_to_cart', id=products[index].id) }}"
                                    type="button">Add to cart</a>
                             </div>
                             <small class="text-body-secondary">{{prices[index].unit_amount}}</small>

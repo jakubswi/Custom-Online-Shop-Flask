@@ -10,11 +10,14 @@
         </a>
 
         <ul class="nav col-md-4 justify-content-end">
-            <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="#">Home</a></li>
-            <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="#">Features</a></li>
-            <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="#">Pricing</a></li>
-            <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="#">FAQs</a></li>
-            <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="#">About</a></li>
+            <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="{{ url_for('main_page') }}">Home</a>
+            </li>
+            <li class="nav-item"><a class="nav-link px-2 text-body-secondary"
+                                    href="{{ url_for('products') }}">Products</a></li>
+            <li class="nav-item"><a class="nav-link px-2 text-body-secondary"
+                                    href="{{ url_for('statute') }}">Statute</a></li>
+            <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="{{ url_for('about') }}">About</a>
+            </li>
         </ul>
     </footer>
 </div>

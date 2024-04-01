@@ -11,6 +11,7 @@ stripe_keys = {
 app = Flask(__name__)
 Bootstrap5(app)
 
+
 # stripe.api_key = stripe_keys["secret_key"]
 
 
@@ -89,12 +90,24 @@ def stripe_webhook():
 
 @app.route('/login')
 def login():
+    # TODO: Implement logic for login in
     return render_template("login.html")
 
 
 @app.route('/signup')
 def signup():
+    # TODO: Implement logic for registering
     return render_template("signup.html")
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
+@app.route('/statute')
+def statute():
+    return render_template('statute.html')
 
 
 @app.route('/products')

@@ -6,7 +6,7 @@
     {% block styles %}
     {{ bootstrap.load_css() }}
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='assets/img/.svg') }}" rel="icon" type="image/x-icon">
+    <link href="{{ url_for('static', filename='assets/img/basket.svg') }}" rel="icon" type="image/x-icon">
 
     {% endblock %}
 </head>
@@ -23,7 +23,7 @@
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a class="nav-link px-2 link-secondary" href="{{ url_for('main_page') }}">Home</a></li>
             <li><a class="nav-link px-2" href="{{ url_for('products') }}">Products</a></li>
-            <li><a class="nav-link px-2" href="#">About</a></li>
+            <li><a class="nav-link px-2" href="{{ url_for('about') }}">About</a></li>
             <li><a class="nav-link px-2" href="{{ url_for('shopping_cart') }}"><img
                     src="static/assets/img/cart.png"></a></li>
         </ul>
