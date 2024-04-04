@@ -24,8 +24,8 @@ Before running the application, make sure you have the following:
 1. Clone the repository:
 
     ```bash
-    git clone <repository_url>
-    cd <project_directory>
+    git clone https://github.com/jakubswi/Custom-Online-Shop-Flask.git
+    cd Custom-Online-Shop-Flask
     ```
 
 2. Install dependencies:
@@ -62,3 +62,6 @@ Before running the application, make sure you have the following:
 
 Contributions are welcome! Feel free to open issues or pull requests.
 
+## License
+
+This project is licensed under the [MIT License](LICENSE).
